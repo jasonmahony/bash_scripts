@@ -1,16 +1,19 @@
 #!/bin/bash
 
-SERVER='duralistener2.sc.verticalresponse.com'
-SENDER='jason@verticalresponse.com'
-RECIP='jason.mahony@gmail.com'
+SERVER='server.example.com'
+SENDER='email@example.com'
+RECIP='email@domain.com'
+i=0
 
+while [ $i -lt 10 ]
+do
 (sleep 1
 echo 'helo $SERVER'
-sleep 1
+sleep 0.5
 echo "mail from: $SENDER"
-sleep 1
+sleep 0.5
 echo "rcpt to: $RECIP"
-sleep 5
+sleep 4
 echo "data"
 sleep 1
 echo "subject: working please"
@@ -20,4 +23,7 @@ echo "
 here we go again and again and again
 ."
 sleep 1
-echo "quit") | telnet $SERVER 25
+echo "quit"
+) | telnet $SERVER 25
+i=$[$i+1]
+done
