@@ -1,10 +1,13 @@
 #!/bin/bash
 
-touch /opt/sites/current/tmp/restart.txt
+# Script assumes touch /tmp/restart.txt will
+# restart passenger running with Nginx on host
+touch /tmp/restart.txt
 sleep 5
 
 PS=($(ps -ef f | grep Passenger | grep -v grep | awk {'print$2":"$9'}))
 
+# This section kills hung passenger processes
 for i in "${PS[@]}"
 do 
   if [[ $i == *:Passenger ]]
