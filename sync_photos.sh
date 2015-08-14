@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rsync -av /Users/jason/Pictures/Photos\ Library.photoslibrary /Volumes/jason/Pictures/
+rsync -ahvz --progress /Users/jason/Pictures/Photos\ Library.photoslibrary /Volumes/jason/Pictures/Photos\ Library\ Jason.photoslibrary
